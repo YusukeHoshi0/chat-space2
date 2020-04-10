@@ -1,0 +1,10 @@
+@mixin po_ab($top, $right) {
+  position: absolute;
+  top: $top;  
+  right: $right;
+}
+
+@mixin font_style($size, $weight) {
+  font-size: $size ;
+  font-weight: $weight;
+}
