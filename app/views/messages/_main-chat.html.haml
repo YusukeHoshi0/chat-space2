@@ -1,0 +1,31 @@
+.main-chat
+  .header
+    .header__left-box
+      .header__left-box--group-name{data: {group: {id: @group.id}}}
+        = @group.name
+      .header__left-box--members
+        = "Member : #{@member}"
+    = link_to edit_group_path(@group.id) do
+      .header__btn--edit-group
+        Edit
+
+  .contents
+    = render @messages
+
+  .footer
+    -# = form_for [@group, @message] do |f|
+    -#   .input-box
+    -#     = f.text_field :body, class: 'input-box__text', placeholder: 'type a message'
+    -#     = f.label :image, class: 'input-box__image' do
+    -#       = fa_icon 'image', class: 'icon'
+    -#       = f.file_field :image, class: 'input-box__image__file'
+    -#   = f.submit 'Send', class: 'submit-btn'
+
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        .input-box
+          = f.label :image, class: 'input-box__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'input-box__image__file'
+        = f.submit 'Send', class: 'submit-btn'

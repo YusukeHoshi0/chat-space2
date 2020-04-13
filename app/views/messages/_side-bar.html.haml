@@ -13,8 +13,8 @@
   .left-contents
     .left-contents__btn
       - current_user.groups.each do |group|
-        = link_to "#" do
+        = link_to group_messages_path(group) do
           .left-contents__btn--group-name
             = group.name
           .left-contents__btn--last-message
-            -# = group.show_last_message
+            = group.show_last_message
