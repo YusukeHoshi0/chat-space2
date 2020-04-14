@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @messages = @group.messages.includes(:user)
+    @member = @group.users.map{|u| u.name}.join(", ")
   end
 
   def create
