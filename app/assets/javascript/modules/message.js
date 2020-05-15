@@ -41,7 +41,6 @@ $(function() {
 
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
-    console.log("hello world"); 
     var formData = new FormData(this);
     var url = $(this).attr('action');
     $.ajax({
@@ -57,7 +56,7 @@ $(function() {
       $('.contents').append(html);
       $('#new_message')[0].reset();
       $('.contents').animate({ scrollTop: $('.contents')[0].scrollHeight});
-      $('.submit-btn').attr('disabled', '');
+      $('.submit-btn').attr('disabled', false);
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
